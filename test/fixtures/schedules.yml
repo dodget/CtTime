@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_name: MyString
+  class_name: MyString
+  specialty: MyString
+  start: 2016-08-28 19:34:51
+  end: 2016-08-28 19:34:51
+  location: MyString
+  hours: 1.5
+  in_hst: false
+  ct_assigned: MyString
+  backup_ct: MyString
+
+two:
+  course_name: MyString
+  class_name: MyString
+  specialty: MyString
+  start: 2016-08-28 19:34:51
+  end: 2016-08-28 19:34:51
+  location: MyString
+  hours: 1.5
+  in_hst: false
+  ct_assigned: MyString
+  backup_ct: MyString

@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828203642) do
+ActiveRecord::Schema.define(version: 20160829010006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "schedules", force: :cascade do |t|
+    t.string   "course_name"
+    t.string   "class_name"
+    t.string   "specialty"
+    t.datetime "start"
+    t.datetime "ending"
+    t.string   "location"
+    t.float    "hours"
+    t.boolean  "in_hst"
+    t.string   "ct_assigned"
+    t.string   "backup_ct"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "specializations", force: :cascade do |t|
     t.integer  "user_id"

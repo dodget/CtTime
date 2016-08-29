@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course name:</strong>
+  <%= @schedule.course_name %>
+</p>
+
+<p>
+  <strong>Class name:</strong>
+  <%= @schedule.class_name %>
+</p>
+
+<p>
+  <strong>Specialty:</strong>
+  <%= @schedule.specialty %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @schedule.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @schedule.ending %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @schedule.location %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @schedule.hours %>
+</p>
+
+<p>
+  <strong>In hst:</strong>
+  <%= @schedule.in_hst %>
+</p>
+
+<p>
+  <strong>Ct assigned:</strong>
+  <%= @schedule.ct_assigned %>
+</p>
+
+<p>
+  <strong>Backup ct:</strong>
+  <%= @schedule.backup_ct %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>

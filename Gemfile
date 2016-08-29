@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 #user authentication with Devise
 gem 'devise'
 
+#using 'roo' to help with schedule import
+gem 'roo', '~> 2.4.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

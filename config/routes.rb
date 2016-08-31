@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'schedule' => 'schedules#index'
-
+  get '/users/sign_up' => 'registrations#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

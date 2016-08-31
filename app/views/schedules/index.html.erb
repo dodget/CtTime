@@ -2,6 +2,42 @@
 
 <h1>Listing Schedules</h1>
 
+<div class="container">
+  <div class="scheduleList">
+    <div class="row">
+
+      <!-- the unordered list of classes for each user -->
+      <% if user_signed_in? %>
+        <ul>
+          <% @schedules.each do |schedule| %>
+            <% if schedule.ending >= Date.today %>
+              <% if schedule.ct_assigned.include? current_user.full_name %>
+
+                <li class="list-group-item">
+                  <h2><%= schedule.class_name %></h2>
+                  <p><%= schedule.start %></p>
+                  <p><%= schedule.ending %></p>
+                </li>
+
+              <% else if schedule.backup_ct.include? current_user.full_name %>
+
+                <li class="list-group-item">
+                  <h2>Thrive Support</h2>
+                  <p><%= schedule.start %></p>
+                  <p><%= schedule.ending %></p>
+                </li>
+              <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<!--
 <table>
   <thead>
     <tr>
@@ -39,6 +75,7 @@
     <% end %>
   </tbody>
 </table>
+-->
 
 <br>
 

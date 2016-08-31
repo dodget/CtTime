@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Schedules</h1>
+
 
 <div class="container">
   <div class="scheduleList">
@@ -15,16 +15,14 @@
 
                 <li class="list-group-item">
                   <h2><%= schedule.class_name %></h2>
-                  <p><%= schedule.start %></p>
-                  <p><%= schedule.ending %></p>
+                  <p><%= schedule.start.strftime(("%A %m/%d/%y %I:%M %p")) %> - <%= schedule.ending.strftime(("%I:%M %p")) %> </p>
                 </li>
 
               <% else if schedule.backup_ct.include? current_user.full_name %>
 
                 <li class="list-group-item">
                   <h2>Thrive Support</h2>
-                  <p><%= schedule.start %></p>
-                  <p><%= schedule.ending %></p>
+                  <p><%= schedule.start.strftime(("%A %m/%d/%y %I:%M %p")) %> - <%= schedule.ending.strftime(("%I:%M %p")) %> </p>
                 </li>
               <% end %>
               <% end %>
@@ -78,5 +76,3 @@
 -->
 
 <br>
-
-<%= link_to 'New Schedule', new_schedule_path %>

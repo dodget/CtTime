@@ -1,9 +1,41 @@
-<div class="jumbotron">
-  <div class="container">
+<div class="page-header">
+
     <% if user_signed_in? %>
-     <h1>Hello, <%= current_user.first %></h1>
+
+      <h1 class="col-sm-offset-1"><%= current_user.first %>, <small>see your schedule and find sources for further learning</small></h1>
+
     <% else %>
-      <h1>hello!</h1>
+      <h1 class="col-sm-offset-1">Please, sign in to see your schedule!</h1>
     <% end %>
-  </div>
-</div>
+
+</div><!--header-->
+
+<% if user_signed_in? %>
+
+  <div class="container">
+
+    <div class="col-sm-4">
+
+      <h2>My Credentials</h1>
+
+    </div><!--col-sm-4-->
+
+
+
+    <div class="col-sm-4">
+
+      <h2>Schedule Quick Look</h1>
+
+    </div><!--col-sm-4-->
+
+
+
+    <div class="col-sm-4">
+
+      <h2>Learning Resources</h1>
+
+    </div><!--col-sm-4-->
+
+  </div><!--container-->
+
+<% end %>

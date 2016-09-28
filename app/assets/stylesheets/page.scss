@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $dusty: #96858f;
+$lightDusty: #dfdadd;
 $lavendar: #6d7993;
 $overcast: #9099A2;
 $paper: #d5d5d5;
@@ -17,19 +18,29 @@ $paper: #d5d5d5;
 }
 
 #credentials{
-  background-color: $dusty;
-  color: white;
+  border-bottom: 4px solid $dusty;
+  margin-right: 7px;
+}
 
-  border-radius: 3px;
+#credentials h2{
+  font-weight: bold;
 }
 
 #quick_sched{
-  background-color: $overcast;
-  color: white;
-  
-  border-radius: 3px;
+  border-bottom: 4px solid $overcast;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+#quick_sched h2{
+  font-weight: bold;
 }
 
 #resources{
+  margin-left: 7px;
+  border-bottom: 4px solid $lavendar;
+}
 
+#resources h2{
+  font-weight: bold;
 }

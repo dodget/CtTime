@@ -2,7 +2,7 @@
 
     <% if user_signed_in? %>
 
-      <h1 class="col-sm-offset-1"><%= current_user.first %>, <small>see your schedule and find sources for further learning</small></h1>
+      <h1 class="col-sm-offset-1"><%= current_user.first %>, <small>see your schedule and find resources for further learning</small></h1>
 
     <% else %>
       <h1 class="col-sm-offset-1">Please, sign in to see your schedule!</h1>
@@ -14,7 +14,7 @@
 
   <div class="container">
 
-    <div class="col-sm-4" id="credentials">
+    <div class="col-sm-3" id="credentials">
 
       <h2>My Credentials</h1>
 
@@ -22,20 +22,36 @@
 
 
 
-    <div class="col-sm-4" id="quick_sched">
+    <div class="col-sm-5" id="quick_sched">
 
-      <h2>Schedule Quick Look</h1>
+      <h2>Week at a glance</h1>
 
     </div><!--col-sm-4-->
 
 
 
-    <div class="col-sm-4" id="resources">
+    <div class="col-sm-3" id="resources">
 
-      <h2>Learning Resources</h1>
+      <h2>Resources</h1>
 
     </div><!--col-sm-4-->
 
   </div><!--container-->
 
 <% end %>
+
+
+
+<div class="row">
+  <div class="col-sm-3">
+    <% if current_user.admin? %>
+      <ul>
+        <% @potential_specialties.each do |potential_specialty| %>
+
+          <li class="list-group-item"><%= potential_specialty.specialty %> <%= link_to '+', specializations_path(:user => current_user, :specialty => potential_specialty) %></li>
+
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

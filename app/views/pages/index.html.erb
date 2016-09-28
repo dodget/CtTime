@@ -44,11 +44,11 @@
 
 <div class="row">
   <div class="col-sm-3">
-    <% if current_user.admin? %>
+    <% if user_signed_in? && current_user.admin? %>
       <ul>
         <% @potential_specialties.each do |potential_specialty| %>
 
-          <li class="list-group-item"><%= potential_specialty.specialty %> <%= link_to '+', specializations_path(:user => current_user, :specialty => potential_specialty) %></li>
+          <li class="list-group-item"><%= potential_specialty.specialty %> <%= link_to '+', specializations_path(:specialty_id => potential_specialty), :method => :post %></li>
 
         <% end %>
       </ul>

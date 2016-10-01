@@ -1,0 +1,64 @@
+
+<% if user_signed_in? && current_user.admin? %>
+  <div class="page-header">
+
+        <h1 class="col-sm-offset-1"><%= @user.full_name %>'s page</h1>
+
+  </div><!--header-->
+
+
+
+    <div class="container">
+
+      <div class="col-sm-3" id="credentials">
+
+        <h2>Credentials</h1>
+
+          <ul>
+            <% for specialty in @user.specialties %>
+              <li class="list-group-item"><%= specialty.specialty %></li>
+            <% end %>
+          </ul>
+
+      </div><!--col-sm-4-->
+
+
+
+      <div class="col-sm-5" id="quick_sched">
+
+        <h2>Week at a glance</h1>
+
+      </div><!--col-sm-4-->
+
+
+
+      <div class="col-sm-3" id="resources">
+
+        <h2>Resources</h1>
+
+      </div><!--col-sm-4-->
+
+    </div><!--container-->
+
+
+
+
+
+  <div class="row">
+    <div class="container">
+      <div class="col-sm-4" id="add_specialty">
+        <h2>Add a specialty</h2>
+          <ul>
+            <% @potential_specialties.each do |potential_specialty| %>
+              <% if !@user.specializations.exists?(:specialty => potential_specialty) %>
+
+                <li class="list-group-item"><%= potential_specialty.specialty %> <%= link_to '<span class="glyphicon glyphicon-plus"></span>'.html_safe, specializations_path(:specialty_id => potential_specialty, :user => @user), :method => :post %></li>
+
+              <% end %>
+            <% end %>
+          </ul>
+
+      </div>
+    </div>
+  </div>
+<% end %>

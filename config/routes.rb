@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :specialties
   resources :specializations
   devise_for :users, :controllers => { registrations: 'registrations' }
+  resources :users, :only =>[:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

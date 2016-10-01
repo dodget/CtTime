@@ -17,30 +17,36 @@ $paper: #d5d5d5;
   color: $paper;
 }
 
-#credentials{
-  border-bottom: 4px solid $dusty;
+
+#credentials {
   margin-right: 7px;
 }
 
 #credentials h2{
   font-weight: bold;
+  border-bottom: 4px solid $dusty;
 }
 
 #quick_sched{
-  border-bottom: 4px solid $overcast;
   margin-left: 7px;
   margin-right: 7px;
 }
 
 #quick_sched h2{
   font-weight: bold;
+  border-bottom: 4px solid $overcast;
 }
 
 #resources{
   margin-left: 7px;
-  border-bottom: 4px solid $lavendar;
 }
 
 #resources h2{
   font-weight: bold;
+  border-bottom: 4px solid $lavendar;
+}
+
+#add_specialty h2{
+  font-weight: bold;
+  border-bottom: 4px solid $lavendar;
 }

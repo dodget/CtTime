@@ -1,14 +1,15 @@
 class SpecializationsController < ApplicationController
 
   def create
-    @specialization = current_user.specializations.build(:specialty_id => params[:specialty_id])
+    @user = User.find(params[:user])
+    @specialization = @user.specializations.build(:specialty_id => params[:specialty_id])
     if @specialization.save
       flash[:notice] = "Added specialty"
-      redirect_to root_url
+      redirect_to request.referrer
 
     else
       flash[:notice] = "error"
-      redirect_to root_url
+      redirect_to request.referrer
     end
   end
 

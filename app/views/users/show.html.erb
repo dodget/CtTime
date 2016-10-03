@@ -47,12 +47,12 @@
   <div class="row">
     <div class="container">
       <div class="col-sm-4" id="add_specialty">
-        <h2>Add a specialty</h2>
-          <ul>
+        <h2>Add a specialty <span class="pull-right"><div class="btn" id="show_list"><span class="glyphicon glyphicon-arrow-down green" id="arrow"</span></div></span></h2>
+          <ul class="list-group" id="potential_specialty_list">
             <% @potential_specialties.each do |potential_specialty| %>
               <% if !@user.specializations.exists?(:specialty => potential_specialty) %>
 
-                <li class="list-group-item"><%= potential_specialty.specialty %> <%= link_to '<span class="glyphicon glyphicon-plus"></span>'.html_safe, specializations_path(:specialty_id => potential_specialty, :user => @user), :method => :post %></li>
+                <li class="list-group-item clearfix"><%= potential_specialty.specialty %> <span class="pull-right"><div class="btn btn-xs"><%= link_to '<span class="glyphicon glyphicon-plus"></span>'.html_safe, specializations_path(:specialty_id => potential_specialty, :user => @user), :method => :post %></div></span></li>
 
               <% end %>
             <% end %>

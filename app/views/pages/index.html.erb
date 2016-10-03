@@ -39,19 +39,3 @@
   </div><!--container-->
 
 <% end %>
-
-
-
-<div class="row">
-  <div class="col-sm-3">
-    <% if user_signed_in? && current_user.admin? %>
-      <ul>
-        <% @potential_specialties.each do |potential_specialty| %>
-
-          <li class="list-group-item"><%= potential_specialty.specialty %> <%= link_to '+', specializations_path(:specialty_id => potential_specialty), :method => :post %></li>
-
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-</div>

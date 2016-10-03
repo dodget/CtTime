@@ -28,6 +28,38 @@
 
         <h2>Week at a glance</h1>
 
+          <ul>
+            <% @schedules.each do |schedule| %>
+              <% if (schedule.end_date >= Date.today) && (schedule.end_date <= Date.today + 7.days) %>
+
+
+                <% if (schedule.ct_assigned.include? @user.full_name) && (schedule.class_name == "PTO") %>
+
+                  <li class="list-group-item">
+                    <h3>PTO</h3>
+                    <p><%= schedule.start_date.strftime(("%A, %m/%d/%y")) %> <%= schedule.start_time.strftime(("%I:%M %p")) %> - <%= schedule.end_date.strftime(("%A, %m/%d/%y")) %> <%= schedule.end_time.strftime(("%I:%M %p")) %> </p>                  <p><%= schedule.location %></p>
+                  </li>
+
+                <% elsif schedule.ct_assigned.include? @user.full_name %>
+
+                  <li class="list-group-item">
+                    <h3><%= schedule.class_name %></h3>
+                    <p><%= schedule.start_date.strftime(("%A %m/%d/%y")) %> <%= schedule.start_time.strftime(("%I:%M %p")) %> - <%= schedule.end_time.strftime(("%I:%M %p")) %> </p>
+                    <p><%= schedule.location %></p>
+                  </li>
+
+                <% elsif schedule.backup_ct. == @user.full_name %>
+
+                  <li class="list-group-item">
+                    <h3>Thrive Support</h3>
+                    <p><%= schedule.start_date.strftime(("%A %m/%d/%y")) %> <%= schedule.start_time.strftime(("%I:%M %p")) %> - <%= schedule.end_time.strftime(("%I:%M %p")) %> </p>                  <p><%= schedule.location %></p>
+                  </li>
+
+                <% end %>
+              <% end %>
+            <% end %>
+          </ul>
+
       </div><!--col-sm-4-->
 
 

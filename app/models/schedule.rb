@@ -25,7 +25,7 @@ class Schedule < ActiveRecord::Base
 
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
-    when ".xlsx" then Roo::Excelx.new(file.path, packed: nil, file_warning: :ignore)
+      when ".xlsx" then Roo::Excelx.new(file.path, packed: nil, file_warning: :ignore)
       when ".xls" then Roo::Excel.new(file.path, :ignore)
       when ".ods" then Roo::LibreOffice.new(file.path, packed: nil, file_warning: :ignore)
       else raise "Unknown file type: #{file.original_filename}"

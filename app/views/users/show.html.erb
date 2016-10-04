@@ -14,9 +14,16 @@
 
         <h2>Credentials</h1>
 
-          <ul>
+          <ul class="list-group">
             <% for specialty in @user.specialties %>
-              <li class="list-group-item"><%= specialty.specialty %></li>
+              <li class="list-group-item clearfix">
+                <%= specialty.specialty %>
+                <span class="pull-right">
+                  <div class="btn btn-xs">
+                    <%= link_to '<span class="glyphicon glyphicon-minus red"></span>'.html_safe, specialization_path(:specialty_id => specialty, :user => @user), :method => :delete %>
+                  </div>
+                </span>
+              </li>
             <% end %>
           </ul>
 
@@ -28,7 +35,7 @@
 
         <h2>Week at a glance</h1>
 
-          <ul>
+          <ul class="list-group">
             <% @schedules.each do |schedule| %>
               <% if (schedule.end_date >= Date.today) && (schedule.end_date <= Date.today + 7.days) %>
 

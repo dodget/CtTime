@@ -26,6 +26,10 @@ $overcast: #9099A2;
 $paper: #d5d5d5;
 
 
+body{
+  overflow-x: hidden;
+}
+
 .login-box{
   border: 1px solid #949494;
   border-radius: 3px;

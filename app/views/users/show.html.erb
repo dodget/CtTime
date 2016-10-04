@@ -10,7 +10,7 @@
 
     <div class="container">
 
-      <div class="col-sm-3" id="credentials">
+      <div class="col-sm-4" id="credentials">
 
         <h2>Credentials</h1>
 
@@ -27,17 +27,33 @@
             <% end %>
           </ul>
 
+          <div id="add_specialty">
+            <h2>Add a specialty <span class="pull-right"><div class="btn" id="show_list"><span class="glyphicon glyphicon-arrow-down green" id="arrow"</span></div></span></h2>
+              <ul class="list-group" id="potential_specialty_list">
+                <% @potential_specialties.each do |potential_specialty| %>
+                  <% if !@user.specializations.exists?(:specialty => potential_specialty) %>
+
+                    <li class="list-group-item clearfix"><%= potential_specialty.specialty %> <span class="pull-right"><div class="btn btn-xs"><%= link_to '<span class="glyphicon glyphicon-plus"></span>'.html_safe, specializations_path(:specialty_id => potential_specialty, :user => @user), :method => :post %></div></span></li>
+
+                  <% end %>
+                <% end %>
+              </ul>
+
+          </div>
+
+
+
       </div><!--col-sm-4-->
 
 
 
-      <div class="col-sm-5" id="quick_sched">
+      <div class="col-sm-7" id="quick_sched">
 
-        <h2>Week at a glance</h1>
+        <h2><%= @user.first %>'s schedule</h1>
 
           <ul class="list-group">
             <% @schedules.each do |schedule| %>
-              <% if (schedule.end_date >= Date.today) && (schedule.end_date <= Date.today + 7.days) %>
+              <% if (schedule.end_date >= Date.today)  %>
 
 
                 <% if (schedule.ct_assigned.include? @user.full_name) && (schedule.class_name == "PTO") %>
@@ -71,33 +87,8 @@
 
 
 
-      <div class="col-sm-3" id="resources">
-
-        <h2>Resources</h1>
-
-      </div><!--col-sm-4-->
-
-    </div><!--container-->
 
 
 
 
-
-  <div class="row">
-    <div class="container">
-      <div class="col-sm-4" id="add_specialty">
-        <h2>Add a specialty <span class="pull-right"><div class="btn" id="show_list"><span class="glyphicon glyphicon-arrow-down green" id="arrow"</span></div></span></h2>
-          <ul class="list-group" id="potential_specialty_list">
-            <% @potential_specialties.each do |potential_specialty| %>
-              <% if !@user.specializations.exists?(:specialty => potential_specialty) %>
-
-                <li class="list-group-item clearfix"><%= potential_specialty.specialty %> <span class="pull-right"><div class="btn btn-xs"><%= link_to '<span class="glyphicon glyphicon-plus"></span>'.html_safe, specializations_path(:specialty_id => potential_specialty, :user => @user), :method => :post %></div></span></li>
-
-              <% end %>
-            <% end %>
-          </ul>
-
-      </div>
-    </div>
-  </div>
 <% end %>

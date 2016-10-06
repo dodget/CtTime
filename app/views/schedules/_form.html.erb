@@ -1,8 +1,7 @@
 
 
 <% if current_user.admin? %>
-
-  <div class="container">
+  <div class="container" id="importBox">
 
     <div class="row">
       <h1>Import the schedule</h1>
@@ -11,7 +10,7 @@
     <div class="row">
       <%= form_tag import_schedules_path, multipart: true do %>
         <label for="file">File to Upload</label> <%= file_field_tag :file %>
-        <%= submit_tag "Import"%>
+        <%= submit_tag("Import", :id=>"submit")%>
 
     </div><!--row-->
 
@@ -24,3 +23,8 @@
 
 
 <% end %>
+<br/>
+<br/>
+<br/>
+<div class="container" id="loader">
+</div>

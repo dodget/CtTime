@@ -5,3 +5,23 @@
 .list-group-item{
   margin: 7px;
 }
+
+
+#loader{
+  width: 50px;
+  height: 50px;
+  border: 5px solid;
+  border-radius: 100%;
+  border-color: #96858f #6d7993 #d5d5d5 #9099A2;
+  display: none;
+  animation: rotate 2s infinite;
+}
+
+@keyframes rotate{
+  from {
+    transform: rotate(0deg)
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
